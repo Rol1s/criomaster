@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #0F2B5B;
+  --color-primary-light: #1A3F7A;
+  --color-accent: #F27B20;
+  --color-accent-hover: #E06A10;
+  --color-bg: #F8FAFB;
+  --color-surface: #FFFFFF;
+  --color-text: #1A1A2E;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+  --color-dark: #0A1628;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* Hero background animations — более заметные */
+@keyframes hero-grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 48px 48px; }
+}
+@keyframes hero-orb-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+  33% { transform: translate(25px, -20px) scale(1.15); opacity: 1; }
+  66% { transform: translate(-10px, 15px) scale(0.95); opacity: 0.8; }
+}
+@keyframes hero-orb-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate(-25px, 25px) scale(1.2); opacity: 1; }
+}
+@keyframes hero-orb-3 {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.85; }
+}
+
+/* Индикаторы на холодильнике */
+@keyframes hero-dot-blink {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Дрейфующие трассы на фоне */
+@keyframes hero-track-drift {
+  0% { transform: translateX(-100%); opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { transform: translateX(100%); opacity: 0.3; }
+}
+@keyframes hero-track-pulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.35; }
+}
+
+/* Подиум под холодильником */
+@keyframes hero-podium-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.15); }
+}
+
+/* Мастер онлайн — пульс */
+@keyframes hero-master-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.4); }
+  50% { opacity: 0.9; box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
 }
