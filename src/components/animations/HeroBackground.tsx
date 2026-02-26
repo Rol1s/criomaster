@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-/** Технологичный фон: дрейфующие трассы, градиент с фиолетовым оттенком, лёгкий X-ray контур */
+/** Технологичный фон: дрейфующие трассы, градиент, сетка */
 export function HeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -53,15 +53,6 @@ export function HeroBackground() {
           transform: 'perspective(400px) rotateX(60deg) scale(1.8)',
           transformOrigin: 'center 20%',
           animation: 'hero-grid-move 22s linear infinite',
-        }}
-      />
-
-      {/* Лёгкий X-ray контур — схема платы/компрессора (очень мягко) */}
-      <div
-        className="absolute bottom-0 right-0 w-64 h-48 opacity-[0.06]"
-        style={{
-          background: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80'%3E%3Cpath fill='none' stroke='white' stroke-width='0.5' d='M10 20 L30 20 L30 40 L10 40 Z M35 25 L55 25 L55 45 L35 45 Z M60 15 L85 15 L85 50 L60 50 Z M15 55 L40 55 L40 65 L15 65 Z M50 55 L90 55' stroke-dasharray='2 2'/%3E%3C/svg%3E") center/contain no-repeat`,
-          animation: 'hero-track-pulse 8s ease-in-out infinite',
         }}
       />
 
